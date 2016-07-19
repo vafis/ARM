@@ -1,0 +1,95 @@
+﻿@model PricingQuery.Web.Models.PersonViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm())
+        {
+            <fieldset>
+                @Html.ValidationSummary(false)
+        <div>
+            @Html.LabelFor(x => x, "Name:")
+            <div>
+                @Html.TextBoxFor(model => model.Name)
+            </div>
+        </div>
+        <div>
+            @Html.LabelFor(x => x.Surname, "Surname:*" )
+            <div>
+                @Html.TextBoxFor(x => x.Surname)
+            </div>
+        </div>
+        <div>
+            @Html.LabelFor(x => x.Phone, "Phone:*")
+            <div>
+                @Html.TextBoxFor(x => x.Phone)
+            </div>
+        </div>
+        <div>
+            @Html.LabelFor(x => x.Email, "Email:*")
+            <div>
+                @Html.TextBoxFor(x => x.Email)
+            </div>
+        </div>
+        <div>
+            @Html.LabelFor(x => x.Address.Line1, "Line1:*")
+            <div>
+                @Html.TextBoxFor(x => x.Address.Line1)
+            </div>
+        </div>
+        <div>
+            @Html.LabelFor(x => x.Address.City, "City:*")
+            <div>
+                @Html.TextBoxFor(x => x.Address.City)
+            </div>
+        </div>
+        <div>
+            @Html.LabelFor(x => x.Address.PostCode, "PostCode:*")
+            <div>
+                @Html.TextBoxFor(x => x.Address.PostCode)
+            </div>
+        </div>
+        <div>
+            @Html.LabelFor(x => x.Address.Country, "Country:*")
+            <div>
+                @Html.TextBoxFor(x => x.Address.Country)
+            </div>
+        </div>
+                <div>
+                    <div>
+                        @for (int i = 0; i < Model.Products.Count; i++)
+                        {
+                            <div>
+                                @Html.HiddenFor(x => x.Products[i].Id)
+
+                                @Html.HiddenFor(x => x.Products[i].Name)
+
+                                @Html.EditorFor(x => x.Products[i].IsChecked)
+                                @Html.DisplayFor(x => x.Products[i].Name)
+
+                            </div>
+                        }
+
+                    </div>
+                </div>
+                <div>
+                    <button>
+                        Save Price Query
+                    </button>
+                </div>
+
+            </fieldset>
+
+        }
+    </div>
+</body>
+</html>

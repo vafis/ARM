@@ -1,0 +1,54 @@
+﻿@model PricingQuery.Domain.Entities.Person
+
+
+@{
+    ViewBag.Title = "Created";
+    //var address = @Model.Address.Line1 + " " + @Model.Address.City + " " + @Model.Address.PostCode + " " + @Model.Address.Country;
+}
+
+<h2>Created</h2>
+
+<fieldset>
+    <div>
+        <label>Name:</label>
+        <div>
+            <pre>@Model.Name</pre>
+        </div>
+    </div>
+    <div>
+        <label>SureName:</label>
+        <div>
+            <pre>@Model.Surname</pre>
+        </div>
+    </div>
+    <div>
+        <label>Name:</label>
+        <div>
+            <pre>@Model.Phone</pre>
+        </div>
+    </div>
+    <div>
+        <label>SureName:</label>
+        <div>
+            <pre>@Model.Email</pre>
+        </div>
+    </div>
+    <div>
+        <label>Address:</label>
+        <div>
+            <pre>@(Model.Address.Line1 + " " + Model.Address.City + " " + Model.Address.PostCode + " " + @Model.Address.Country)   </pre>
+        </div>
+    </div>
+</fieldset>
+<fieldset>
+    <div>
+        <label>Products:</label>
+        @for (int i = 0; i < Model.Products.Count; i++)
+        {
+            <div>
+                <pre>@Model.Products[i].Name</pre>
+            </div>
+        }
+    </div>
+
+</fieldset>
